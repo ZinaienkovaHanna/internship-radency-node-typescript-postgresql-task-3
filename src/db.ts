@@ -4,10 +4,10 @@ config();
 
 const pool = new pg.Pool({
     user: 'postgres',
-    password: process.env.DB_PASSWORD,
+    password: process.env.POSTGRES_PASSWORD,
     host: 'localhost',
     port: 5432,
-    database: process.env.DB_NAME,
+    database: process.env.POSTGRES_DB,
 });
 
 export default pool;

@@ -1,4 +1,5 @@
-import { Response, Request } from 'express';
+//src/note.service.ts
+
 import {
     addNoteRepo,
     getNotesRepo,
@@ -8,7 +9,12 @@ import {
     getNotesStatsRepo,
 } from '../repositories/note.repository.js';
 import { validateNoteSchema } from '../models/validate.model.js';
-import { NoteType } from '../types/note.types.js';
+import {
+    NoteType,
+    Request,
+    Response,
+    CustomError,
+} from '../types/note.types.js';
 
 function handleError(res: Response, error: any): void {
     res.status(500).json({ error: error.message });

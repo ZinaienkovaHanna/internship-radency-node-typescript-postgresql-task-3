@@ -10,13 +10,16 @@ export interface StatsType {
     [key: string]: { active: number; archived: number };
 }
 
-export interface ResponseType {
-    data: NoteType[];
-    status: any;
-}
-
-export interface RequestType {
-    userId: number;
-    queryParams: Record<string, any>;
+export type Request = {
     body: NoteType;
+    params: { [key: string]: string };
+};
+
+export type Response = {
+    status(code: number): Response;
+    json(data: any): void;
+};
+
+export interface CustomError extends Error {
+    message: string;
 }
